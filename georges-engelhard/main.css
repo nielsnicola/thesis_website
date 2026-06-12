@@ -1,0 +1,84 @@
+/* 
+* DO NOT EDIT!
+* Styles declared here are structurally necessary.
+* You can add your custom styles or override existing ones at the end of this file.
+*/
+#back-to-top {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#container, #footnote-bar > ol {
+    max-width: 800px;
+    width: 100%;
+}
+#container, #footnote-bar {
+    margin: 0 auto;
+}
+
+/* Minimal styling: responsive scaling + semantic readability defaults only. */
+
+body {
+    margin: 0;
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+    line-height: 1.6;
+    overflow-wrap: break-word;   /* long words/URLs don't force sideways scroll */
+}
+
+#container {
+    box-sizing: border-box;
+    /* tightens toward the screen edges on phones, opens up on wide screens */
+    padding: clamp(1rem, 4vw, 3rem);
+}
+
+/* ── Media normalization ──────────────────────────────────────────────────
+ * One adaptive rule for every media type so they render cohesively:
+ *   - floor    : small media scale up so they aren't tiny
+ *   - width cap : never wider than the text column
+ *   - height cap: never taller than most of the screen
+ * object-fit guards the one case where the width floor and height cap
+ * conflict (very tall, thin media) — it letterboxes instead of stretching,
+ * so aspect ratio is always preserved. Horizontal alignment is NOT set here;
+ * it follows normal flow so the author decides. Tune the three values to taste.
+ * ───────────────────────────────────────────────────────────────────────── */
+img, svg, video {
+    display: block;
+    height: auto;
+    margin: 1.5em 0;               /* vertical spacing only — alignment left to author */
+    min-width: min(100%, 20rem);   /* floor  (~320px, never past the column) */
+    max-width: 100%;               /* width ceiling */
+    max-height: 80vh;              /* height ceiling */
+    object-fit: contain;           /* keep aspect ratio if floor vs. cap ever fight */
+}
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Figures: let the figure own the spacing so there's no gap before the caption */
+figure {
+    margin: 1.5em 0;               /* also drops the browser's odd 40px side indent */
+}
+figure img, figure svg, figure video {
+    margin: 0;
+}
+figcaption {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Tables stay legible (uses currentColor — no custom colour introduced) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0.4em 0.6em;
+    text-align: left;
+}
+th {
+    border-bottom: 1px solid currentColor;
+}

@@ -1,0 +1,78 @@
+/* font import from the file in root called "ASTherma-BoldCondensed.woff" */
+@font-face {
+  font-family: "ASTherma-BoldCondensed";
+  src: url("ASTherma-BoldCondensed.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap');
+
+body {
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.1;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+/* Augmented Fourth scale (×1.414) */
+h1 { font-size: 5.653rem; }   /* 90.4px */
+h2 { font-size: 3.998rem; }   /* 63.9px */
+h3 { font-size: 2.827rem; }   /* 45.2px */
+h4 { font-size: 1.999rem; }   /* 32px   */
+h5 { font-size: 1.414rem; }   /* 22.6px */
+h6 { font-size: 1rem;     }   /* 16px   */
+
+hgroup {
+  width: 100%;
+}
+hgroup p {
+  text-align: center;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+#artist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#artist-list a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  text-decoration: none;
+}
+.dots {
+  flex: 1; /* fill all remaining space */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.title {
+  color: #0f0;
+  text-align: justify;
+  text-align-last: justify;
+  font-family: "ASTherma-BoldCondensed", sans-serif;
+}
+.title-abbr {
+  flex-shrink: 0;
+}
+.number {
+  min-width: 2ch; /* always room for two characters */
+  text-align: right;
+  flex-shrink: 0;
+}
+
+hr {
+  border: none;
+  border-top: 0.1rem solid #000;
+  margin: 1em 0 2em 0;
+}

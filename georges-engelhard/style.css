@@ -1,0 +1,229 @@
+/*
+* Add your custom styles here
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Comfortaa:wght@400;500;700&display=swap');
+
+/* ── Palette ─────────────────────────────────────────────────────────────── */
+:root {
+    --sky:        #8ec5e6;
+    --sky-light:  #daeef9;
+    --white:      #ffffff;
+    --ink:        #1a1a1a;
+    --ink-soft:   #555555;
+    --coral:      #ff3333;
+    --yellow:     #ffdd00;
+    --link:       #1a6fb5;
+    --rule:       #d4eaf7;
+    --font-display: 'Fredoka', sans-serif;
+    --font-body:  'Comfortaa', sans-serif;
+}
+
+/* ── Page ────────────────────────────────────────────────────────────────── */
+body {
+    background-color: var(--sky);
+    background-image: radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* ── Container ───────────────────────────────────────────────────────────── */
+#container {
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 4px 32px rgba(0, 80, 140, 0.12);
+    padding-bottom: 4rem;
+}
+
+/* ── Back to Index link ──────────────────────────────────────────────────── */
+.back-link {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--white) !important;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 0.35em 0.9em;
+    margin: 1rem 0 0.5rem clamp(1rem, 4vw, 3rem);
+    text-decoration: none !important;
+    transition: background 0.2s;
+}
+
+.back-link:hover {
+    background: rgba(0, 0, 0, 0.28);
+    text-decoration: none !important;
+}
+
+/* ── Button ─────────────────────────────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--white) !important;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 0.35em 0.9em;
+    text-decoration: none !important;
+    transition: background 0.2s;
+    position: relative;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.btn:hover {
+    background: rgba(0, 0, 0, 0.28);
+    text-decoration: none !important;
+}
+
+/* ── H1 ──────────────────────────────────────────────────────────────────── */
+h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--coral);
+    font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3.0rem);
+    line-height: 1.15;
+    margin-bottom: 0.25em;
+}
+
+/* ── H2 ──────────────────────────────────────────────────────────────────── */
+h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--yellow);
+    font-size: clamp(1.4rem, 2vw + 0.5rem, 2rem);
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3em;
+    border-bottom: 3px dashed var(--sky);
+}
+
+/* ── Body text ───────────────────────────────────────────────────────────── */
+p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    margin-bottom: 1.2em;
+}
+
+[data-custom-style="Normal"] p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    margin-bottom: 1.2em;
+}
+
+/* ── Byline (the Normal paragraph immediately after h1) ─────────────────── */
+h1 + [data-custom-style="Normal"] p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* ── Images ──────────────────────────────────────────────────────────────── */
+img {
+    padding: 10px;
+}
+
+/* ── Figures & captions ──────────────────────────────────────────────────── */
+figure {
+    margin: 2.5em 0;
+    background: var(--sky-light);
+    border-radius: 6px;
+    padding: 1rem 1rem 0.75rem;
+}
+
+figure img {
+    padding: 0;
+    margin: 0 auto;
+}
+
+figcaption {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.6em;
+}
+
+/* ── Image centering ─────────────────────────────────────────────────────── */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* ── Links ───────────────────────────────────────────────────────────────── */
+a {
+    text-decoration: none;
+    color: var(--link);
+    font-family: var(--font-body);
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* footnote superscript links */
+a.footnote-ref {
+    color: var(--coral);
+    font-size: 0.7em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+/* ── Bibliography ────────────────────────────────────────────────────────── */
+#bib {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 3px dashed var(--sky);
+}
+
+/* ── Footnotes ───────────────────────────────────────────────────────────── */
+.footnotes {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+.footnotes li {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    margin-bottom: 0.5em;
+}
+
+.footnotes li p {
+    display: inline;
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+}
+
+a.footnote-back {
+    color: var(--coral);
+}
+
+/* ── Footnote bar (injected by footnote.js) ─────────────────────────────── */
+#footnote-bar {
+    background: var(--white) !important;
+    border-top: 2px solid var(--sky) !important;
+    border-left: 2px solid var(--sky) !important;
+    border-right: 2px solid var(--sky) !important;
+    font-family: var(--font-body);
+    font-size: 0.8rem !important;
+    color: var(--ink-soft);
+}
+
+#footnote-bar ol {
+    padding-left: 1.5rem;
+}
+
+#footnote-bar li {
+    margin-bottom: 0.4em;
+    color: var(--ink-soft);
+}

@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+
+#spacer {
+  height: 54000vh;
+
+}
+
+#container {
+  position: fixed;
+  top: 0;
+  left: 48%;
+  /* transform: translateX(-40%); */
+  width: min(700px, 90vw);
+  will-change: transform;
+  text-align:justify;
+}
+
+#scrollGif {
+    position: fixed;
+    top: 70%;
+    left: 2%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: auto;
+    z-index: 100;
+
+}
+
+#load {
+  position: fixed;
+  left: 3%;
+  width: 2%;
+  /* height: auto; */
+  z-index: -100;
+}

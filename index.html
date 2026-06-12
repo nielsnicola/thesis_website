@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+    <title>DAT4 THESES 2026</title>
+</head>
+<body>
+    <div id="container">
+        <hgroup>
+            <p><em>You’ve Reached the Center, Please Hold - Design, Art & Technology - Graduation Show 2026</em></p>
+            <h1 class="title">DAT4 THESES 2026</h1>
+        </hgroup>
+        <hr>
+        <ul id="artist-list"></ul>
+    </div>
+    <script>
+        const artists = [
+            {
+                id: 1,
+                name: "Niels Pauls",
+                title: "Memes Against the Machine",
+                link: "./niels-pauls/index.html"
+            },
+            {
+                id: 2,
+                name: "Lisa Ziebermayr",
+                title: "Look at This Weird Thing I Found",
+                link: "./lisa-ziebermayr/index.html"
+            },
+            {
+                id: 3,
+                name: "Niels Gräber",
+                title: "Hug a Pigeon, Lift a Stone, Open a Fridge",
+                link: "./niels-graber/index.html"
+            },
+            {
+                id: 4,
+                name: "Misha van Rooij",
+                title: "The Sublime and the Spectacle",
+                link: "./misha-van-rooij/index.html"
+            },
+            {
+                id: 5,
+                name: "Mare de Boer",
+                title: "Transforming the Ordinary",
+                link: "./mare-de-boer/index.html"
+            },
+            {
+                id: 6,
+                name: "Varvara Pekhota",
+                title: "Interface ⇨ Exhaust ⇨ Exceed",
+                link: "./varvara-pekhota/index.html"
+            },
+            {
+                id: 7,
+                name: "Maroua Gaddur",
+                title: "Crusade in screens",
+                link: "./maroua-gaddur/index.html"
+            },
+            {
+                id: 8,
+                name: "Georges Engelhard",
+                title: "Toys that Dream of Play",
+                link: "./georges-engelhard/index.html"
+            }
+        ];
+
+        function getDotWidth() {
+            const test = document.createElement("span");
+            test.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;";
+            test.textContent = "..........";
+            document.body.appendChild(test);
+            const w = test.offsetWidth / 10;
+            document.body.removeChild(test);
+            return w;
+        }
+
+        const dotWidth = getDotWidth();
+
+        function fillDots() {
+            document.querySelectorAll(".dots").forEach(dotsSpan => {
+                dotsSpan.textContent = "";
+                const available = dotsSpan.offsetWidth;
+                const count = Math.floor(available / dotWidth);
+                dotsSpan.textContent = ".".repeat(Math.max(0, count));
+            });
+        }
+
+        function buildList() {
+            const list = document.querySelector("#artist-list");
+            artists.forEach(artist => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = artist.link;
+                a.innerHTML = `
+                    <strong class="name">${artist.name}</strong>
+                    <span class="title-abbr">${artist.title}</span>
+                    <span class="dots"></span>
+                    <strong class="number">${artist.id.toString().padStart(2, '0')}</strong>
+                `;
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+        }
+
+        buildList();
+        fillDots();
+        const ro = new ResizeObserver(fillDots);
+        ro.observe(document.querySelector("#artist-list"));
+    </script>
+</body>
+</html>

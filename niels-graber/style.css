@@ -1,0 +1,619 @@
+/*
+* Custom styles — layout and typography matching the PDF
+*/
+
+/* ── Base typography (matching PDF: Aptos, 12pt, ~1.42 line-height) ─────── */
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Aptos', Calibri, sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #000;
+}
+
+/* ── Two-column layout ───────────────────────────────────────────────────── */
+
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar {
+  width: 22vw;
+  min-width: 160px;
+  max-width: 260px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  z-index: 1001;
+}
+
+#sidebar-title {
+  text-align: left;
+}
+
+#sidebar h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.35;
+  margin: 0 0 0.75rem 0;
+}
+
+#sidebar p {
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.4;
+}
+
+#sidebar .author {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  text-align: center;
+}
+
+#rock-link {
+  display: block;
+  margin-top: auto;
+  margin-bottom: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+#rock-link img {
+  width: 75%;
+  height: auto;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+#rock-link:hover img {
+  opacity: 0.75;
+}
+
+#main-content {
+  flex: 1;
+  padding: clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-content > * {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* Figures break out wider than the text column */
+#main-content > figure.multi {
+  max-width: 880px;
+}
+
+/* ── Headings ────────────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: 1.84rem; /* ~22pt */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Chapter titles ──────────────────────────────────────────────────────── */
+
+.chapter-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 3.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.chapter-title em {
+  font-weight: normal;
+  font-size: 1rem;
+  display: block;
+  margin-top: 0.2em;
+}
+
+/* ── Blockquotes (11pt in PDF, indented) ────────────────────────────────── */
+
+blockquote {
+  font-size: 0.917em;
+  margin: 1.5em 0;
+  padding: 0.4em 1.5em;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+p.poem {
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Figures & captions ─────────────────────────────────────────────────── */
+
+figure {
+  margin: 2em 0;
+}
+
+/* Multiple images inside one figure — equal height rows */
+figure.multi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  /* Break out wider than the 680px text column, centred on the column.
+     Both the column and #main-content share the same centre axis, so this
+     stays centred whether the figure is a direct child or nested in a div. */
+  width: 880px;
+  max-width: 880px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+
+figure.multi.natural-height {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+figure.multi.natural-height figcaption {
+  flex: none;
+  width: 100%;
+  text-align: center;
+}
+
+figure.multi.natural-height .img-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+figure.multi img.img-natural-height {
+  width: auto;
+  height: 232px;
+  max-height: none;
+  flex: none;
+}
+
+figure.multi.natural-height-row {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto auto;
+  justify-content: center;
+  align-items: end;
+}
+
+figure.multi img.img-natural-height-row {
+  width: auto;
+  height: 155px;
+  max-height: none;
+  flex: none;
+}
+
+figure.multi.natural-height-row figcaption {
+  grid-column: 1 / -1;
+}
+
+figure.multi.match-height {
+  align-items: center;
+  justify-content: center;
+}
+
+figure.multi.match-height img {
+  flex: 0 0 auto;
+  width: auto;
+  height: 336px;
+  max-height: none;
+  object-fit: contain;
+}
+
+figure.multi img,
+figure.multi video {
+  border-radius: 3px;
+}
+
+figure.multi img {
+  flex: 1 1 220px;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  margin: 0 !important;
+  padding: 0;
+  display: block;
+}
+
+/* Caption always sits on its own full-width row below the images */
+figure.multi figcaption {
+  flex: 0 0 100%;
+  margin-top: 0.2em;
+}
+
+/* 4-across grid for specific figures */
+figure.multi.nowrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+figure.multi.nowrap img {
+  width: 100%;
+  height: 200px;
+  max-height: none;
+  object-fit: cover;
+  flex: none;
+}
+
+figure.multi.nowrap figcaption {
+  grid-column: 1 / -1;
+}
+
+figure.multi.three-img-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+figure.multi.three-img-row img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  flex: none;
+}
+
+figure.multi.three-img-row figcaption {
+  grid-column: 1 / -1;
+}
+
+figure.multi.video-rows {
+  display: grid !important;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+}
+
+figure.multi.video-rows figcaption {
+  grid-column: 1 / -1;
+}
+
+figure.multi.video-rows img {
+  width: auto;
+  height: 280px;
+  max-height: none;
+  object-fit: contain;
+  flex: none;
+}
+
+figure.multi.video-rows .fig18-video {
+  height: 280px;
+  width: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.video-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+/* Play symbol overlay, visible while the video is paused —
+   styled to match the native frosted-glass play button */
+.video-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(60, 60, 60, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.video-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 3px);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 22px solid rgba(255, 255, 255, 0.95);
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.video-wrap.is-paused::before,
+.video-wrap.is-paused::after {
+  opacity: 1;
+}
+
+figure.multi.three-col {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+figure.multi.three-col figcaption {
+  grid-column: 1 / -1;
+}
+
+figure.multi.three-col .fig18-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 0.4em;
+  text-align: center;
+}
+
+/* ── Images ──────────────────────────────────────────────────────────────── */
+
+/* Override main.css's min-width floor — let images size naturally, centred */
+img {
+  min-width: 0 !important;
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+}
+
+figure {
+  text-align: center;
+}
+
+figure img {
+  margin: 0 auto;
+}
+
+/* When an image shares a <p> with text, give it breathing room below */
+p > img {
+  margin-bottom: 1.25em;
+}
+
+/* Two consecutive images in the same paragraph: show side by side */
+p > img + img {
+  margin-top: 0;
+}
+
+/* Caption text — the (fig. X) superscripts */
+sup {
+  font-size: 0.75em;
+  color: #000;
+}
+
+a.footnote-ref {
+  color: #000;
+  text-decoration: none;
+}
+
+a.footnote-ref:hover {
+  text-decoration: underline;
+}
+
+blockquote sup {
+  color: #fff;
+}
+
+/* ── Footnote bar (7.9pt in PDF) ─────────────────────────────────────────── */
+
+#footnote-bar {
+  font-size: 7.9pt !important;
+  font-family: 'Aptos', Calibri, 'Segoe UI', Arial, sans-serif !important;
+  border-left: 1px solid #ccc !important;
+  border-right: 1px solid #ccc !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+/* ── Dark mode toggle button ─────────────────────────────────────────────── */
+
+#dark-toggle,
+#back-to-top,
+#back-to-mainpage {
+  background: none;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 0.3em 0.8em;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #000;
+}
+
+#dark-toggle {
+  margin-top: 0;
+}
+
+#back-to-top {
+  display: block;
+  margin: 2rem auto 1rem;
+}
+
+#back-to-mainpage {
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+#dark-toggle:hover,
+#back-to-top:hover,
+#back-to-mainpage:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+body.dark {
+  background: #111;
+  color: #eee;
+}
+
+body.dark #dark-toggle,
+body.dark #back-to-top,
+body.dark #back-to-mainpage {
+  border-color: #eee;
+  color: #eee;
+}
+
+body.dark #dark-toggle:hover,
+body.dark #back-to-top:hover,
+body.dark #back-to-mainpage:hover {
+  background: #eee;
+  color: #111;
+}
+
+body.dark blockquote {
+  background: #fff;
+  color: #000;
+}
+
+body.dark sup {
+  color: #fff;
+}
+
+body.dark blockquote sup {
+  color: #000;
+}
+
+body.dark #sidebar,
+body.dark #sidebar p,
+body.dark #sidebar .author,
+body.dark #sidebar h1 {
+  color: #eee;
+}
+
+
+body.dark a {
+  color: #adf;
+}
+
+body.dark a.footnote-ref {
+  color: #adf;
+}
+
+body.dark figcaption {
+  color: #aaa;
+}
+
+body.dark blockquote a.footnote-ref {
+  color: #000;
+}
+
+body.dark #footnote-bar {
+  background: #1a1a1a !important;
+  color: #eee !important;
+  border-top-color: #444;
+  border-left-color: #444 !important;
+  box-shadow: 0 -2px 8px rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark #footnote-bar a {
+  color: #adf;
+}
+
+/* ── Responsive: drop the figure breakout when the window is too narrow ──── */
+
+@media (max-width: 1200px) {
+  figure.multi {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+  #main-content > figure.multi {
+    max-width: 680px;
+  }
+  figure.multi.natural-height .img-row {
+    max-width: 100%;
+  }
+  figure.multi img.img-natural-height {
+    height: auto;
+    max-height: 232px;
+    min-width: 0;
+    max-width: calc(50% - 2px);
+    object-fit: contain;
+    align-self: flex-end;
+  }
+  /* Fig. 11–13: drop the fixed 336px height so the row fits */
+  figure.multi.match-height img {
+    height: auto;
+    max-height: 336px;
+    max-width: calc(33.33% - 3px);
+  }
+  /* Fig. 15/16: drop the fixed 155px height so the four-up row fits */
+  figure.multi.natural-height-row {
+    grid-template-columns: repeat(4, minmax(0, auto));
+  }
+  figure.multi img.img-natural-height-row {
+    height: auto;
+    max-height: 155px;
+    max-width: 100%;
+    min-width: 0;
+  }
+  /* Fig. 8: scale the square tiles down instead of cropping ever-thinner strips */
+  figure.multi.nowrap img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ── Responsive: stack on small screens ─────────────────────────────────── */
+
+@media (max-width: 700px) {
+  #container {
+    flex-direction: column;
+  }
+  #sidebar {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-bottom: 1px solid #eee;
+  }
+  #sidebar .author {
+    position: relative;
+    bottom: auto;
+  }
+}
