@@ -1,0 +1,76 @@
+/*
+* Add your custom styles here
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+p {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    padding-right: 5%;
+    color: rgb(26, 26, 26);
+}
+
+a {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h2 {
+    margin-top: 300px;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+figcaption {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.tweet{
+    color:black;
+    font-weight: 600;
+}
+
+#sub{
+    margin-top: 0%;
+    margin-bottom: 2em;
+}
+
+#name{
+    color:blue;
+}
+
+#container {
+    margin-left: 5%;
+}
+
+::selection {
+  background:rgb(138, 183, 255); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgb(138, 183, 255); /* Gecko Browsers */
+}

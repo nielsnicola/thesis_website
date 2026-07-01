@@ -1,0 +1,19 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow: hidden; height: 100vh; }
+
+
+
+    #kiosk-viewport {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    }
+
+
+
+    .seamless {
+    width: 100%;
+    border: none;
+    display: block;       /* removes inline whitespace gap below iframe */
+    overflow: hidden;
+    }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scroll.css">
+    <title>DAT4 THESES 2026</title>
+</head>
+<body>
+    <div id="kiosk-viewport">
+        <div id="kiosk-track" style="will-change: transform;">
+            <div id="kiosk-content">
+        <div id="title">
+        <hgroup>
+            <p><em>You’ve Reached the Center, Please Hold - Design, Art & Technology - Graduation Show 2026</em></p>
+            <h1 class="title">DAT4 THESES 2026</h1>
+        </hgroup>
+        <hr>
+        <ul id="artist-list"></ul>
+    </div>
+
+                        <iframe class="seamless" src="./georges-engelhard/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./lisa-ziebermayr/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./mare-de-boer/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./maroua-gaddur/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./misha-van-rooij/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./niels-graber/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./niels-pauls/index.html" onload="resizeIframe(this)"></iframe>
+                        <iframe class="seamless" src="./varvara-pekhota/index.html" onload="resizeIframe(this)"></iframe>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function resizeIframe(iframe) {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+
+    <script src="scroll.js"></script>
+
+
+</body>
+</html>
