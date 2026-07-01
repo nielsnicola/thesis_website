@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
   clone.innerHTML = content.innerHTML;
 });
 
-const PX_PER_SEC = 20;
+const PX_PER_SEC = 30;
 let pos = 0;
 let paused = false;
 let resumeTimer = null;
